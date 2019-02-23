@@ -1,12 +1,16 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+import pymongo
+import time
 
 app = Flask(__name__)
 
-# Configure Database
-# TODO: replace placeholder 'xxx' with DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'xxx'
-# db = SQLAlchemy(app)
+# Configure MongoDB Database
+conn = 'mongodb://root:ucbmongodb@35.184.4.63:27017'
+client = pymongo.MongoClient(conn)
+db = client.somedb
+db.someinfo.insert_one(temp_doc)
+
 
 
 # Set up routes
