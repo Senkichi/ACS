@@ -1,7 +1,5 @@
 import pandas as pd
 
-df = pd.read_csv("./final w lat lon.csv",encoding = "ISO-8859-1")
+df = pd.read_csv("./final_w_lat_lon.csv")
 
-df = pd.to_numeric(df["Lon"])
-
-df.to_json("./final w lat long.json",orient = "records")
+df.to_json("./final_w_lat_lon.json",orient = "records")
