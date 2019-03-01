@@ -24,7 +24,7 @@ var	typeSelect = d3.select("#dataType").node().value;
 //initial draw
 d3.json(url, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
-
+  console.log(data)
 	createFeatures(data);
 })
 
