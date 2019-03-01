@@ -1,5 +1,5 @@
 
-var url = "./js/final_w_lat_lon.json"
+var url = "http://127.0.0.1:5000/api/v1/census"
 
 var map = L.map("map", {
     center: [
@@ -28,7 +28,8 @@ d3.json(url, function(data) {
 	createFeatures(data);
 })
 
-
+d3.json(url, function(data) {
+console.log(data)});
 
 // Perform a GET request to the query URL
 
