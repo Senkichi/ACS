@@ -49,7 +49,7 @@ var selectData = sourceData[i][selectConcat]
 
   // Add circles to map
 L.circle(coords,{
-    radius: selectData,
+    radius: selectData / 5,
     fillColor: "blue",
     color: "black",
     weight: 1,
