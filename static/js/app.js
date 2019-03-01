@@ -1,5 +1,5 @@
 
-var url = "./js/final_w_lat_lon.json"
+var url = "http://127.0.0.1:5000/api/v1/census"
 
 var map = L.map("map", {
     center: [
@@ -24,7 +24,7 @@ var	typeSelect = d3.select("#dataType").node().value;
 //initial draw
 d3.json(url, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
-
+  console.log(data)
 	createFeatures(data);
 })
 

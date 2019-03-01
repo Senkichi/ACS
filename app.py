@@ -5,7 +5,7 @@ import pymongo
 import json
 from bson.json_util import dumps
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='static/templates')
 
 mongo = PyMongo(app, uri="mongodb://root:ucbmongodb@35.184.4.63:27017/ACS")
 conn = 'mongodb://root:ucbmongodb@35.184.4.63:27017'
@@ -45,6 +45,11 @@ def censusByYear(year):
 @app.route("/api/v1/census/county/<county>")
 def censusByCounty(county):
     result = dumps(db.census_by_county.find({'County': county},{'Unnamed: 0': 0, '_id': 0}))
+    return jsonify(json.loads(result))
+
+@app.route("/api/v1/countylist")
+def countyList():
+    result = dumps(db.census_by_county.find({}, {'County': 1, '_id': 0}))
     return jsonify(json.loads(result))
 
 if __name__ == '__main__':
