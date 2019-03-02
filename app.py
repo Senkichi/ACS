@@ -35,7 +35,10 @@ def comparison():
 def graph():
     return render_template('graph.html')
 
-
+@app.route('/animatedBubble')
+@app.route('/animatedBubble.html')
+def animatedBubble():
+	return render_template('animatedBubble.html')
 
 # Set up api routes
 @app.route("/api/v1/census")
@@ -44,6 +47,26 @@ def censusAllYears():
     censusdata = dumps(db.census_by_county.find({},{'Unnamed: 0': 0, '_id': 0}))
     # print(censusdata)
     return jsonify(json.loads(censusdata))
+
+@app.route("/api/v1/census/bubble")
+def censusDataBubble():
+    # print(db.census_by_county.find())
+    censusdata = dumps(db.census_by_county.find({},{'Unnamed: 0': 0, '_id': 0}))
+    # print(censusdata)
+    result = []
+    for county in json.loads(censusdata):
+        for year in range(2009,2017):
+            result.append({
+                'county': county['County'],
+                'year': year,
+                'in': county[str(year)+'IN'],
+                'out': county[str(year)+'OUT'],
+                'net': county[str(year)+'NET'],
+                'rent': county[str(year)+'RENT'],
+                'med_inc': county[str(year)+'MED_INC']
+            })
+    # print(result)
+    return jsonify(result)
 
 @app.route("/api/v1/census/year/<year>")
 def censusByYear(year):
