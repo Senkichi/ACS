@@ -30,6 +30,11 @@ def index():
 def comparison():
 	return render_template('comparison.html')
 
+@app.route('/graph')
+@app.route('/graph.html')
+def graph():
+    return render_template('graph.html')
+
 
 
 # Set up api routes
