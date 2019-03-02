@@ -1,3 +1,5 @@
+{% extends "layout.html" %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,51 +9,16 @@
   <title>Line Chart with Time Axis</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
+{% block content %}
+
+  <div>
   <h2 align="center">CPI Index</h2>
 
   <ul class="nav navbar-nav navbar-center">
       </ul>
   <canvas id="myChart" width="2000" height="700"></canvas>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-  <script src="juju.js"></script>
-</body>
-</html>
-
-
-<!--{% extends "layout.html" %}-->
-<!--{% block dropdown %}-->
-<!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse">-->
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>-->
-
-
-    <!--<ul class="nav navbar-nav navbar-center">-->
-      <!--<select id="year">-->
-        <!--<option value="2016" selected="selected">2016</option>-->
-        <!--<option value="2015">2015</option>-->
-        <!--<option value="2014">2014</option>-->
-        <!--<option value="2013">2013</option>-->
-        <!--<option value="2012">2012</option>-->
-        <!--<option value="2011">2011</option>-->
-        <!--<option value="2010">2010</option>-->
-        <!--<option value="2009">2009</option>-->
-      <!--</select>-->
-
-      <!--<select id="dataType">-->
-        <!--<option value="IN" selected="selected">Migration In-Flow</option>-->
-        <!--<option value="OUT">Migration Out-Flow</option>-->
-        <!--<option value="NET">Net Migration</option>-->
-        <!--<option value="MED_INC">Median List Price</option>-->
-        <!--<option value="RENT">Average Rent</option>-->
-      <!--</select>-->
-    <!--</ul>-->
-<!--{% endblock dropdown %}-->
-
-<!--{% block content %}-->
-  <!--<div id="map-holder">-->
-		<!--<div class="container fill">-->
-		<!--<div id="map"></div>-->
-		<!--</div>-->
-	<!--</div>-->
-<!--{% endblock content %}-->
+  <script src="static/js/juju.js"></script>
+</div>
+{% endblock content %}
