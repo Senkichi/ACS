@@ -1,5 +1,5 @@
 
-var url = "http://127.0.0.1:5000/api/v1/census"
+var url = "http://127.0.0.1:5000/api/v1/choropleth"
 
 var map = L.map("map", {
     center: [
@@ -8,8 +8,8 @@ var map = L.map("map", {
     zoom: 6,
   });
 
-  
-  
+
+
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
   maxZoom: 18,
@@ -24,12 +24,9 @@ var	typeSelect = d3.select("#dataType").node().value;
 //initial draw
 d3.json(url, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
-  console.log(data)
+
 	createFeatures(data);
 })
-
-d3.json(url, function(data) {
-console.log(data)});
 
 // Perform a GET request to the query URL
 
@@ -38,36 +35,37 @@ console.log(data)});
 function createFeatures(sourceData) {
 
 
-
-
-for (var i = 0; i < sourceData.length; i++) {
- 
- 
-var coords = [sourceData[i].Lat,sourceData[i].Lon]
 var selectConcat = String(yearSelect.concat(typeSelect))
-var selectData = sourceData[i][selectConcat]
 
-  // Add circles to map
-L.circle(coords,{
-    radius: selectData / 5,
-    fillColor: "blue",
-    color: "black",
+
+geojson = L.choropleth(sourceData, {
+
+  // Define what  property in the features to use
+  valueProperty: selectConcat,
+
+  // Set color scale
+  scale: ["#ffffb2", "#b10026"],
+
+  // Number of breaks in step range
+  steps: 10,
+
+  // q for quartile, e for equidistant, k for k-means
+  mode: "q",
+  style: {
+    // Border color
+    color: "#fff",
     weight: 1,
-    opacity: 1,
     fillOpacity: 0.8
-}).addTo(group1).bindPopup("<h5>" + sourceData[i].NAME);
+  }
+}).addTo(map)
+}
 
-map.addLayer(group1);
-	  }
-
-
-};
 
 d3.json(url, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
 
  d3.select("#year").on("change",function(){
- 
+
 	yearSelect = d3.select("#year").node().value;
 	console.log(yearSelect);
 	group1.clearLayers()
@@ -81,7 +79,7 @@ d3.json(url, function(data) {
 
 
  d3.select("#dataType").on("change",function(){
-			
+
 	typeSelect = d3.select("#dataType").node().value;;
 	console.log(typeSelect)
 	group1.clearLayers()
@@ -89,4 +87,3 @@ d3.json(url, function(data) {
 
 	})
 })
-

@@ -66,5 +66,10 @@ def countyList():
     result = dumps(db.census_by_county.find({}, {'County': 1, '_id': 0}))
     return jsonify(json.loads(result))
 
+@app.route("/api/v1/choropleth")
+def choro_dict():
+    result = dumps(db.choropleth_master.find({}))
+    return jsonify(json.loads(result))
+
 if __name__ == '__main__':
     app.run(debug=True)
