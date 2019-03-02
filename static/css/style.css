@@ -2,7 +2,7 @@
 {
     width: 100px;
     height: 100px;
-    min-height: 80%;
+    min-height: 75%;
     min-width: 100%;
     display: block;
 }
@@ -10,11 +10,16 @@
 body {
 	padding-top: 0px;
 	margin: 0px;
+    background-color: white;
 }
 
 html, body
 {
     height: 100%;
+}
+
+h7 {
+    color: white;
 }
 
 
@@ -33,4 +38,41 @@ html, body
 .container{
     max-width:60em;
     padding: 0.2em;
+}
+
+.navbar {
+    background-color: rgb(12, 173, 167);
+}
+.navbar-brand {
+   background-color: rgb(12, 173, 167);
+   font-weight: bold;
+   color: white;
+}
+
+.dropdown {
+   color: white;
+} 
+
+@media (max-width: 480px) {
+  .navbar {
+    background-color: rgb(12, 173, 167);
+}
+
+    .navbar-brand {
+         background-color: rgb(12, 173, 167);
+         font-weight: bold;
+         color: rgb(12, 173, 167);
+}}
+
+body {
+font-family: 'Raleway', sans-serif;
+}
+
+label{
+	color:#2c7775;
+}
+
+select{
+	background-color:rgba(12, 173, 167, 0.05) !important;
+	color:#2c7775 !important;	
 }
