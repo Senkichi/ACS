@@ -11,6 +11,6 @@
 
 ## Flask App
 
-### Web Template
+## Web Template
 
 ## Charting
