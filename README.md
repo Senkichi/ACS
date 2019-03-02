@@ -4,8 +4,14 @@
 
 ## Extraction, Transform
 
+- In python we pulled Census.gov data into a Pandas Dataframe
+- We then combined our various API calls into a master census dataframe
+- 
+
 ## Load
 
-## Web Template
+## Flask App
+
+### Web Template
 
 ## Charting
