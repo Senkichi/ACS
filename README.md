@@ -21,6 +21,6 @@
 
 ## Charting
 
-- Leaflet map with plotted circles using longitude/latitude data
-- Animated Bubble Chart
-- Plot.JS Line Chart
+- Leaflet map with plotted circles using longitude/latitude data with selectable dropdowns for years and data type
+- Animated Bubble Chart (Plotly.js)
+- Plot.js Line Chart
