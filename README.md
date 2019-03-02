@@ -10,6 +10,7 @@
 ## Load
 
 - Loaded our dataframe into MongoDB with PyMongo
+- Hosted MongoDB in external server
 
 ## Flask App
 
