@@ -1,102 +1,42 @@
-<!DOCTYPE html>
-<html lang="en-us">
+{% extends "layout.html" %}
+{% block dropdown %}
+    
 
-<head>
-  <meta charset="UTF-8">
-  <title>Web Visualization Dashboard</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- Leaflet CSS & JS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-  crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-  crossorigin=""></script>
-
-  <!--D3 cdn-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
   
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="static/css/style.css">
-<body>
+{% endblock dropdown %}
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        <a class="navbar-brand" href="index.html">Home</a>
+{% block content %}
+
+	<div class = "d-flex justify-content-center align-items-center container text-center">
+		<div class = "col-xs-6">
+			<label for="year" class="text-center">Select Year</label>
+      <select id="year" class="form-control form-control-lg">
+        <option value="2016" selected="selected">2016</option>
+        <option value="2015">2015</option>
+        <option value="2014">2014</option>
+        <option value="2013">2013</option>
+        <option value="2012">2012</option>
+        <option value="2011">2011</option>
+        <option value="2010">2010</option>
+        <option value="2009">2009</option>
+      </select>
       </div>
-	  
-	  
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse">
-	  
-	
-        <ul class="nav navbar-nav navbar-center">	
-			<select id="year">
-				<option value="2016" selected="selected">2016</option>
-				<option value="2015">2015</option>
-				<option value="2014">2014</option>
-				<option value="2013">2013</option>
-				<option value="2012">2012</option>
-				<option value="2011">2011</option>
-				<option value="2010">2010</option>
-				<option value="2009">2009</option>
-			</select>
-			
-			<select id="dataType">
-				<option value="IN" selected="selected">Migration In-Flow</option>
-				<option value="OUT">Migration Out-Flow</option>
-				<option value="NET">Net Migration</option>
-				<option value="MED_INC">Median List Price</option>
-				<option value="RENT">Average Rent</option>
-			</select>
-			
-			
-		</ul>
+		<div class = "col-xs-6">
+			<label for="dataType">Select Map Type</label>
+      <select id="dataType" class="form-control form-control-lg">
+        <option value="IN" selected="selected">Migration In-Flow</option>
+        <option value="OUT">Migration Out-Flow</option>
+        <option value="NET">Net Migration</option>
+        <option value="MED_INC">Median List Price</option>
+        <option value="RENT">Average Rent</option>
+      </select>
+	</div>
+	</div>
+   </form>
 
-	
-	  
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Visualizations <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-
-              <!-- TODO: -->
-              <!-- append code for dropdown items -->
-              <!--Example-->
-              <!--<li><a href="lat_vs_temp.html">Latitude vs Max Temperature</a></li>-->
-
-            </ul>
-          </li>
-          <li><a href="comparison.html">Comparison</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-		<div id="map-holder">
+  <div id="map-holder">
 		<div class="container fill">
 		<div id="map"></div>
 		</div>
 	</div>	
-		
-		
-		
-
-
-		
-</body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-
-  <script type="text/javascript" src="static/js/config.js"></script>
-  <!-- Our JS -->
-  <script type="text/javascript" src="static/js/app.js"></script>
-
-</html>
+{% endblock content %}

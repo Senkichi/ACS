@@ -21,9 +21,18 @@ db = client.ACS
 # Set up routes
 @app.route("/")
 @app.route("/index")
+@app.route("/index.html")
 def index():
     return render_template("index.html")
 
+@app.route('/comparison')
+@app.route('/comparison.html')
+def comparison():
+	return render_template('comparison.html')
+
+
+
+# Set up api routes
 @app.route("/api/v1/census")
 def censusAllYears():
     # print(db.census_by_county.find())
