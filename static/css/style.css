@@ -10,6 +10,7 @@
 body {
 	padding-top: 0px;
 	margin: 0px;
+    background-color: lightgray;
 }
 
 html, body
@@ -34,3 +35,23 @@ html, body
     max-width:60em;
     padding: 0.2em;
 }
+
+.navbar-brand {
+   background-color: rgb(12, 173, 167);
+   font-family: times new roman;
+   font-weight: bold;
+   color: white;
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    background-color: rgb(12, 173, 167);
+}
+
+    .navbar-brand {
+         background-color: white;
+         font-family: times new roman;
+         font-weight: bold;
+         color: rgb(12, 173, 167);
+}
+
