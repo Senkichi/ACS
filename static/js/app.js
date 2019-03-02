@@ -20,6 +20,7 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 var group1 = L.featureGroup();
 var	yearSelect = d3.select("#year").node().value;
 var	typeSelect = d3.select("#dataType").node().value;
+var geojson
 
 //initial draw
 d3.json(url, function(data) {
