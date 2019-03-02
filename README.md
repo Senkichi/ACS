@@ -4,9 +4,8 @@
 
 ## Extraction, Transform
 
-- In python we pulled Census.gov data into a Pandas Dataframe
-- We then combined our various API calls into a master census dataframe
-- 
+- In python we pulled Census.gov, kaggle.gov, data.gov, and Wikipedia data into a Pandas Dataframe
+- We then combined our various df's into a master census dataframe
 
 ## Load
 
