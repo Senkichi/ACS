@@ -10,6 +10,7 @@
 body {
 	padding-top: 0px;
 	margin: 0px;
+    background-color: white;
 }
 
 html, body
@@ -17,6 +18,9 @@ html, body
     height: 100%;
 }
 
+h7 {
+    color: white;
+}
 
 #map-holder{
     height: 100%;
@@ -34,3 +38,30 @@ html, body
     max-width:60em;
     padding: 0.2em;
 }
+
+.navbar {
+    background-color: rgb(12, 173, 167);
+}
+.navbar-brand {
+   background-color: rgb(12, 173, 167);
+   font-weight: bold;
+   color: white;
+}
+
+.dropdown {
+   color: white;
+} 
+
+@media (max-width: 480px) {
+  .navbar {
+    background-color: rgb(12, 173, 167);
+}
+
+    .navbar-brand {
+         background-color: rgb(12, 173, 167);
+         font-family: times new roman;
+         font-weight: bold;
+         color: rgb(12, 173, 167);
+}
+
+
