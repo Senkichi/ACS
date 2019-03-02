@@ -2,7 +2,7 @@
 {
     width: 100px;
     height: 100px;
-    min-height: 80%;
+    min-height: 75%;
     min-width: 100%;
     display: block;
 }
@@ -21,6 +21,7 @@ html, body
 h7 {
     color: white;
 }
+
 
 #map-holder{
     height: 100%;
@@ -59,9 +60,19 @@ h7 {
 
     .navbar-brand {
          background-color: rgb(12, 173, 167);
-         font-family: times new roman;
          font-weight: bold;
          color: rgb(12, 173, 167);
+}}
+
+body {
+font-family: 'Raleway', sans-serif;
 }
 
+label{
+	color:#2c7775;
+}
 
+select{
+	background-color:rgba(12, 173, 167, 0.05) !important;
+	color:#2c7775 !important;	
+}
