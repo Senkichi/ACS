@@ -1,4 +1,4 @@
-var url = "http://127.0.0.1:5000/api/v1/census"
+var url = "http://127.0.0.1:5000/api/v1/choropleth"
 
 var map = L.map("map", {
     center: [
@@ -19,16 +19,14 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 var group1 = L.featureGroup();
 var	yearSelect = d3.select("#year").node().value;
 var	typeSelect = d3.select("#dataType").node().value;
+var geojson
 
 //initial draw
 d3.json(url, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
-  console.log(data)
+
 	createFeatures(data);
 })
-
-d3.json(url, function(data) {
-console.log(data)});
 
 // Perform a GET request to the query URL
 
@@ -36,31 +34,32 @@ console.log(data)});
 
 function createFeatures(sourceData) {
 
-
-
-
-for (var i = 0; i < sourceData.length; i++) {
-
-
-var coords = [sourceData[i].Lat,sourceData[i].Lon]
+var unshelled = sourceData[0]
 var selectConcat = String(yearSelect.concat(typeSelect))
-var selectData = sourceData[i][selectConcat]
 
-  // Add circles to map
-L.circle(coords,{
-    radius: selectData / 5,
-    fillColor: "blue",
-    color: "black",
+
+geojson = L.choropleth(unshelled, {
+
+  // Define what  property in the features to use
+  valueProperty: selectConcat,
+
+  // Set color scale
+  scale: ["#ffffb2", "#b10026"],
+
+  // Number of breaks in step range
+  steps: 10,
+
+  // q for quartile, e for equidistant, k for k-means
+  mode: "q",
+  style: {
+    // Border color
+    color: "#fff",
     weight: 1,
-    opacity: 1,
     fillOpacity: 0.8
-}).addTo(group1).bindPopup("<h5>" + sourceData[i].NAME);
+  }
+}).addTo(map)
+}
 
-map.addLayer(group1);
-	  }
-
-
-};
 
 d3.json(url, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
