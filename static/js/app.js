@@ -1,8 +1,8 @@
-<<<<<<< HEAD
-var url = "./api/v1/census"
-=======
-var url = "http://127.0.0.1:5000/api/v1/choropleth"
->>>>>>> 5f23cf3c791a7953c1cc2ebd042a110a97af7ee8
+
+//var url = "./api/v1/census"
+
+var url = "./api/v1/choropleth"
+
 
 var map = L.map("map", {
     center: [
