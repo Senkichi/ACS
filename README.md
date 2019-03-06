@@ -1,6 +1,6 @@
 # ACS Project Summary
 
-- Using the Census.gov API (https://api.census.gov/data.html) we collected and stored ACS migration and housing data into a mongoDB for deployment into a flask dashboard application
+- Using the Census.gov API (https://api.census.gov/data.html) we collected and stored American Census Survey (ACS) migration and housing data into a mongoDB for deployment into a flask dashboard application
 
 ## Extraction, Transform
 
